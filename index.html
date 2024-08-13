@@ -17,6 +17,7 @@
         }
         p {
             color: #333;
+            font-size: 18px;
         }
         a {
             color: #007acc;
@@ -26,16 +27,34 @@
         a:hover {
             text-decoration: underline;
         }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>Most wanted</h1>
     <!-- Updated image source to use your image -->
     <img src="IMG_4839.jpeg" alt="A description of IMG_4839" width="300">
-    <p>Dangerous.</p>
-   
+    <p id="message">Dangerous.</p>
+    <button id="changeTextButton">Click me to change text!</button>
+
+    <!-- Adding JavaScript for interactivity -->
+    <script>
+        document.getElementById('changeTextButton').addEventListener('click', function() {
+            document.getElementById('message').textContent = 'The text has been changed!';
+        });
+    </script>
 </body>
 </html>
-
 
 
