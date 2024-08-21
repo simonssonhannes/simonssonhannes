@@ -12,7 +12,7 @@
             margin: 0;
             padding: 50px;
         }
-        h1 {
+        h1, h2 {
             color: black;
         }
         p {
@@ -43,10 +43,19 @@
 </head>
 <body>
     <h1>Most wanted</h1>
-    <!-- Updated image source to use your image -->
     <img src="IMG_4839.jpeg" alt="A description of IMG_4839" width="300">
     <p id="message">Dangerous.</p>
     <button id="changeTextButton">Click me to change text!</button>
+
+    <!-- Interactive link to scroll to a specific section -->
+    <p><a href="#target-section">Go to Target Section</a></p>
+
+    <!-- Some additional content to create space -->
+    <p style="margin-top: 800px;"></p>
+
+    <!-- The target section -->
+    <h2 id="target-section">Target Section</h2>
+    <p>This is the section of the page that you will scroll to when the link is clicked.</p>
 
     <!-- Adding JavaScript for interactivity -->
     <script>
