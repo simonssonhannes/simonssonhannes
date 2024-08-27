@@ -1,68 +1,35 @@
-<!DOCTYPE html> 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple GitHub Pages Site</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: red;
-            margin: 0;
-            padding: 50px;
-        }
-        h1, h2 {
-            color: black;
-        }
-        p {
-            color: #333;
-            font-size: 18px;
-        }
-        a {
-            color: #007acc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Min GitHub Pages Hemsida</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Most wanted</h1>
-    <img src="IMG_4839.jpeg" alt="A description of IMG_4839" width="300">
-    <p id="message">Dangerous.</p>
-    <button id="changeTextButton">Click me to change text!</button>
-
-    <!-- Interactive link to scroll to a specific section -->
-    <p><a href="#target-section">Go to Target Section</a></p>
-
-    <!-- Some additional content to create space -->
-    <p style="margin-top: 800px;"></p>
-
-    <!-- The target section -->
-    <h2 id="target-section">Target Section</h2>
-    <p>This is the section of the page that you will scroll to when the link is clicked.</p>
-
-    <!-- Adding JavaScript for interactivity -->
-    <script>
-        document.getElementById('changeTextButton').addEventListener('click', function() {
-            document.getElementById('message').textContent = 'The text has been changed!';
-        });
-    </script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Hem</a></li>
+                <li><a href="#">Om</a></li>
+                <li><a href="#">Projekt</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Välkommen till Min Hemsida</h1>
+            <p>Detta är en enkel webbplats publicerad med GitHub Pages.</p>
+        </section>
+        <section class="content">
+            <h2>Om Mig</h2>
+            <p>Här kan du skriva en kort introduktion om dig själv eller ditt projekt.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Din Namn. Alla rättigheter förbehållna.</p>
+    </footer>
 </body>
 </html>
 
