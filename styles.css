@@ -9,7 +9,7 @@ body {
 
 /* Header styling */
 header {
-    background-color: #007acc;
+    background-color: #FFA500; /* Orange */
     padding: 15px 0;
     color: white;
 }
@@ -38,7 +38,7 @@ nav ul li a:hover {
 
 /* Hero section styling */
 .hero {
-    background-color: #007acc;
+    background-color: #FFA500; /* Orange */
     color: white;
     padding: 50px 20px;
     text-align: center;
