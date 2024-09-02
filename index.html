@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min GitHub Pages Hemsida - Hem</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Chatbot styling */
+        #chatbot-container {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #chat {
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        #chat div {
+            margin-bottom: 10px;
+        }
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,10 +52,57 @@
             <h2>Hem</h2>
             <p>Här kan du lägga in allmän information om webbplatsen eller en introduktion.</p>
         </section>
+
+        <!-- AI Chatbot Section -->
+        <section class="content">
+            <h2>Chatta med vår AI-bot</h2>
+            <div id="chatbot-container">
+                <div id="chat"></div>
+                <input type="text" id="user-input" placeholder="Skriv din fråga här..." />
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Din Namn. Alla rättigheter förbehållna.</p>
     </footer>
+
+    <script>
+        // Chatbot interaction logic
+        document.getElementById('user-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const userInput = event.target.value;
+                const chatContainer = document.getElementById('chat');
+                
+                // Display user's message
+                const userMessage = document.createElement('div');
+                userMessage.textContent = 'Du: ' + userInput;
+                chatContainer.appendChild(userMessage);
+
+                // Clear the input field
+                event.target.value = '';
+
+                // Call the AI API (e.g., OpenAI API or any other chatbot API)
+                fetch('https://api.example.com/chatbot', { // Replace with the actual API endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display bot's response
+                    const botMessage = document.createElement('div');
+                    botMessage.textContent = 'Bot: ' + data.response;
+                    chatContainer.appendChild(botMessage);
+
+                    // Scroll to the bottom of the chat
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        });
+    </script>
 </body>
 </html>
 
