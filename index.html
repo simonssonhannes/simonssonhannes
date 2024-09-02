@@ -46,11 +46,11 @@
     <main>
         <section class="hero">
             <h1>Hannes Simonsson hemsida</h1>
-            <p>Om mitt studieliv på göteborgs universitet.</p>
+            <p>Om mitt studieliv på Göteborgs universitet.</p>
         </section>
         <section class="content">
             <h2>Hem</h2>
-            <p>humancentered ai</p>
+            <p>Human-centered AI</p>
         </section>
 
         <!-- AI Chatbot Section -->
@@ -66,6 +66,7 @@
         <p>&copy; 2024 Din Namn. Alla rättigheter förbehållna.</p>
     </footer>
 
+    <!-- Place your JavaScript code here -->
     <script>
         // Chatbot interaction logic
         document.getElementById('user-input').addEventListener('keypress', function(event) {
@@ -81,19 +82,23 @@
                 // Clear the input field
                 event.target.value = '';
 
-                // Call the AI API (e.g., OpenAI API or any other chatbot API)
-                fetch('https://api.example.com/chatbot', { // Replace with the actual API endpoint
+                // Call the AI API (replace the API endpoint and key)
+                fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_API_KEY'  // Replace with your actual API key
                     },
-                    body: JSON.stringify({ message: userInput })
+                    body: JSON.stringify({
+                        prompt: userInput,
+                        max_tokens: 50
+                    })
                 })
                 .then(response => response.json())
                 .then(data => {
                     // Display bot's response
                     const botMessage = document.createElement('div');
-                    botMessage.textContent = 'Bot: ' + data.response;
+                    botMessage.textContent = 'Bot: ' + (data.choices[0].text.trim() || "Sorry, I didn't understand that.");
                     chatContainer.appendChild(botMessage);
 
                     // Scroll to the bottom of the chat
